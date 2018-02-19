@@ -1,0 +1,392 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	 <title>Sistema de Alarmas Andon</title>
+	 <script src="mqttws31.js" type='text/javascript'></script> 
+
+	<!-- https://api.cloudmqtt.com/sso/js/mqttws31.js -->  
+	<link rel="stylesheet" href="Hoja_de_Estilos.css"/> 
+</head>
+
+<body>
+	<header id="CabeceraWEB">
+			<figure id="logo_chery">
+				<img src="Logo EMSOVEN.jpg" width="200px" height="110px">
+			</figure>
+			<p id="Membrete">Republica Bolivariana de Venezuela<br>
+				Ministerio del Poder Popular para la Educacion Universitaria, Ciencia y Tecnologia<br>
+				Universidad Nacional Experimental  Politecnica "Antonio Jose de Sucre"<br>
+				Vicerrectorado "Luis Caballero Mejias" Nucleo Charallave
+			</p>
+			<figure id="logo_unexpo">
+				<img src="Logo_UNEXPO.jpg" width="140" height="120px">
+			</figure>
+	</header>
+	   <!--Barra de Navegacion Superior-->
+	<nav id="Barra_Navegacion"> 
+	
+	</nav>
+   <!--Barra de Navegacion Lateral-->
+	<aside id="Barra_Lateral">
+			<blockquote >Estaciones</blockquote>
+			<blockquote >Historial</blockquote>
+	</aside>
+<!--Seccion Principal del Programa(Tablero de Control)-->
+
+	
+	<section>
+		<audio id="Alarm_01" loop preload="auto">
+			<source src="Alarm_01.mp3" type="audio/mp3">
+			<source src="Alarm_01.ogg" type="audio/ogg">
+			<source src="Alarm_01.mp4" type="audio/mp4">
+			<source src="Alarm_01.wav" type="audio/wav">
+			Tu navegador no soporta esta caracteristica
+		</audio>	
+		<h1 id="Titulo_Section">SISTEMA DE ALARMAS ANDON</h1>
+		<div id="Panel_Leds">
+				<div id="Est_01">
+					<figure id="A1">
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure id="A2">
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure id="A3">
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure id="A4">
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure id="A5">
+							<img  src="LedROFF.png" width="70" height="70">
+							<figcaption >
+									01_02
+							</figcaption>
+					</figure>
+				
+				</div>
+				<div id="Est_02">
+					<figure>
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img  src="LedROFF.png" width="70" height="70">
+							<figcaption >
+									03_04
+							</figcaption>
+					</figure>
+				</div>
+				<div id="Est_03">
+					<figure>
+							<img id="imgLedR" src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img id="imgLedB" src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img id="imgAmarillo" src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img id="imgMorado" src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img id="imgVerde" src="Verde.png" width="70" height="70">
+							<figcaption >
+									05_06
+							</figcaption>
+					</figure>
+				</div>
+				<div id="Est_04">
+					<figure>
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img  src="LedROFF.png" width="70" height="70">
+							<figcaption >
+									07_08
+							</figcaption>
+					</figure>
+				</div>
+				<div id="Est_05">
+					<figure>
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img  src="LedROFF.png" width="70" height="70">
+					</figure>
+					<figure>
+							<img  src="LedROFF.png" width="70" height="70">
+							<figcaption >
+									09_10
+							</figcaption>
+					</figure>
+				</div>
+				<div id="Est_06">
+					  <figure>
+					    <img  src="LedROFF.png" width="70" height="70">
+				      </figure>
+					  <figure>
+					    <img  src="LedROFF.png" width="70" height="70">
+				      </figure>
+					  <figure>
+					    <img  src="LedROFF.png" width="70" height="70">
+				      </figure>
+					  <figure>
+					    <img  src="LedROFF.png" width="70" height="70">
+				      </figure>
+					  <figure>
+					    <img  src="LedROFF.png" width="70" height="70">
+						  <figcaption >
+									11_12
+							</figcaption>
+				      </figure>
+			  	</div>
+			</div>
+				<article id="Eventualidades">
+						<header>
+								<h2 id="Titulo_Eventos">EVENTOS</h2>
+						</header>
+						<ul>
+							<li>EMERGENCIA</li>
+							<li>PRODUCCION</li>
+							<li>CALIDAD</li>
+							<li>MANTENIMIENTO</li>
+							<li>SIN EVENTOS</li>
+						</ul>
+				</article>
+              <footer id="footer_section">
+				  		<h1>SALIDAS DIGITALES</h1>
+						<h2>ESTADO: </h2>
+                  		<a id ="salidaDigital">-</a>
+						<h2>SALIDA_01:</h2>
+				  <Div id="Botones_SD">
+					  <label class="switch">
+          			  <input type="checkbox" onclick='OnOff2()'>
+          				<span class="slider round"></span>
+        			</label>
+
+				  </Div> 
+					
+								<!--Led Salida Digital--> 
+				  <div id="Led_SD">
+						<svg width="200" height="200" viewBox="0 0 640 480">
+						<defs>
+						<linearGradient id="svg_6" x1="0" y1="0" x2="1" y2="0">
+							<stop stop-color="#bfbfbf" offset="0"/>
+							<stop stop-color="#404040" offset="1"/>
+						</linearGradient>
+						<linearGradient id="svg_11" x1="0" y1="0" x2="1" y2="1" spreadMethod="pad">
+							<stop id="Led1" stop-color="#000000" stop-opacity="0.992188" offset="0"/>
+							<stop stop-color="#820101" stop-opacity="0.988281" offset="1"/>
+						</linearGradient>
+						<linearGradient id="svg_14" x1="0" y1="0" x2="1" y2="1" spreadMethod="pad">
+							<stop stop-color="#ffffff" stop-opacity="0.996094" offset="0"/>
+							<stop stop-color="#d30606" stop-opacity="0.984375" offset="0.703125"/>
+						</linearGradient>
+						</defs>
+						<g>
+							  		<!--<title>Layer 1</title>-->
+							<circle fill="url(#svg_6)" stroke-width="17.5" stroke-linecap="round" cx="320" cy="240" r="196.125" id="svg_3" fill-opacity="0.77" transform="rotate(90, 320, 240)"/>
+							<circle fill="url(#svg_6)" stroke-width="17.5" stroke-linecap="round" fill-opacity="0.64" cx="319.252837" cy="239.999045" r="160" id="svg_7"/>
+							<circle fill="url(#svg_11)" stroke-width="17.5" stroke-linecap="round" cx="320.000535" cy="240.001698" r="150" id="svg_8"/>
+							<ellipse fill="url(#svg_14)" stroke-width="17.5" stroke-linecap="round" cx="250.179609" cy="170.124194" rx="75.675959" ry="44.402987" id="svg_20" transform="rotate(-47.7626, 250.18, 170.125)"/>
+						</g>
+					  </svg>
+	       		</div>
+				</footer>
+
+	
+	</section>
+	<footer>
+			<p>Diseñado por Carlos Villalobos, Postulante al Titulo de Ingeniero MECATRONICO</p>
+	</footer>
+
+<script>      
+      usuario = 'placa3';
+      contrasena = '45924592';
+		
+      estadoDigital = "OFF";
+
+      function OnOff2(){
+        if (estadoDigital == "OFF"){
+          message = new Paho.MQTT.Message("ON");
+          message.destinationName = '/' + usuario + '/salidaDigital'
+          client.send(message);
+        }
+        else if (estadoDigital == "ON"){
+          message = new Paho.MQTT.Message("OFF");
+          message.destinationName = '/' + usuario + '/salidaDigital'
+          client.send(message);
+        }
+      }
+
+ /*     esto es lo que estaba antes
+ 		function OnOff(dato){
+        message = new Paho.MQTT.Message(dato);
+        message.destinationName = '/' + usuario + '/salidaDigital'
+        client.send(message);
+     };  */
+ 
+     // called when the client connects
+     function onConnect() {
+        // Once a connection has been made, make a subscription and send a message.
+        console.log("onConnect");
+        client.subscribe("#");
+     }
+       
+      // called when the client loses its connection
+     function onConnectionLost(responseObject) {
+        if (responseObject.errorCode !== 0) {
+          console.log("onConnectionLost:", responseObject.errorMessage);
+          setTimeout(function() { client.connect() }, 5000);
+        }
+      }
+        
+      // called when a message arrives
+ 	 function onMessageArrived(message) {
+/*-----------------PULSADOR 0(Rojo)-------------------------*/
+		  	var i= 0;
+		  	if (message.destinationName == '/' + usuario + '/' + 'pulsador0') { //acá coloco el topic
+				var estadoparada = message.payloadString;
+				if(estadoparada == "presionado"){
+				i++;
+				}			
+			} 		
+	 		if(i >0){
+				document.getElementById("imgLedR").src = "LedRON.gif"
+			}
+/*-----------------PULSADOR 1(Azul)-------------------------*/
+		 	var x=0;
+		  	if (message.destinationName == '/' + usuario + '/' + 'pulsador1') { //acá coloco el topic
+				var estadoparada1 = message.payloadString;
+				if(estadoparada1 == "presionado"){
+				x++;
+				}			
+			} 		
+	 		if(x >0){
+				document.getElementById("imgLedB").src = "LedBON.gif"
+			}
+		 
+/*-----------------PULSADOR 2(Amarillo)-------------------------*/
+		 	var z=0;
+		  	if (message.destinationName == '/' + usuario + '/' + 'pulsador2') { //acá coloco el topic
+				var estadoparada2 = message.payloadString;
+				if(estadoparada2 == "presionado"){
+				z++;
+				}			
+			} 		
+	 		if(z >0){
+				document.getElementById("imgAmarillo").src = "Amarillo.gif"
+			}
+		 
+/*-----------------PULSADOR 3(Morado)-------------------------*/
+		 	var y=0;
+		  	if (message.destinationName == '/' + usuario + '/' + 'pulsador3') { //acá coloco el topic
+				var estadoparada3 = message.payloadString;
+				if(estadoparada3 == "presionado"){
+				y++;
+				}			
+			} 		
+	 		if(y >0){
+				document.getElementById("imgMorado").src = "Morado.gif"
+			}
+/*-----------------PULSADOR 4(Morado)-------------------------*/
+
+		  	if (message.destinationName == '/' + usuario + '/' + 'pulsador4') { //acá coloco el topic
+				var estadoparada4 = message.payloadString;
+			}
+		 
+/*-----------------PULSADOR DE PARADA-------------------------*/
+	 
+          	if (message.destinationName == '/' + usuario + '/' + 'pulsador') { //acá coloco el topic
+            //document.getElementById("pulsador").textContent = message.payloadString;
+			var estadopulsador = message.payloadString;
+			
+				if(estadopulsador == "presionado"){
+					document.getElementById("imgLedR").src = "LedROFF.png"
+					document.getElementById("imgLedB").src = "LedROFF.png"
+					document.getElementById("imgAmarillo").src = "LedROFF.png"
+					document.getElementById("imgMorado").src = "LedROFF.png"
+				}
+			}
+
+/*-----------------MOTOR O ALARMA EXTERNA-------------------------*/
+        	if (message.destinationName == '/' + usuario + '/' + 'salidaDigital') { //acá coloco el topic
+            document.getElementById("salidaDigital").textContent = message.payloadString;
+			 estadoDigital= message.payloadString;
+				
+				if(estadoDigital == "ON"){
+				document.getElementById("Led1").setAttribute("stop-color", "#ff0000");
+				}
+				else if (estadoDigital == "OFF"){
+				document.getElementById("Led1").setAttribute("stop-color", "#000000");
+			}
+        	}
+/*-----------------Si hay Conexion Acciona Led Verde-------------------------*/
+
+		 	if(estadopulsador == "presionado" && y<1 && z<1 && x<1 && i<1 ){
+				document.getElementById("imgVerde").src = "Verde.PNG"
+				var Alarm_01= document.getElementById("Alarm_01");
+					Alarm_01.pause();
+			}else if( y>0 || i >0 || x>0 || z >0){
+				document.getElementById("imgVerde").src = "LedROFF.png"
+						var Alarm_01= document.getElementById("Alarm_01");
+						Alarm_01.play();
+			}
+
+		  	//client.isConnected ||estadoparada4 == "presionado"
+       }
+		
+
+	
+	
+       function onFailure(invocationContext, errorCode, errorMessage) {
+          var errDiv = document.getElementById("error");
+          errDiv.textContent = "Could not connect to WebSocket server, most likely you're behind a firewall that doesn't allow outgoing connections to port 39627";
+          errDiv.style.display = "block";
+        }
+        
+       var clientId = "ws" + Math.random();
+        // Create a client instance
+       var client = new Paho.MQTT.Client("m11.cloudmqtt.com", 34329, clientId);
+        
+        // set callback handlers
+        client.onConnectionLost = onConnectionLost;
+        client.onMessageArrived = onMessageArrived;
+        
+        // connect the client
+        client.connect({
+          useSSL: true,
+          userName: usuario,
+          password: contrasena,
+          onSuccess: onConnect,
+          onFailure: onFailure
+        });        
+    </script>
+</body>
+</html>
